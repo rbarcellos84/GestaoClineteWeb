@@ -1,0 +1,225 @@
+<div class="card">
+    <div class="container col-md-12">
+        <h4>Cadstro de cliente</h4>
+        <p>Tela para o cadastro do clientes da empresa.</p>
+        <hr>
+    </div>
+    <div class="container md-3">
+        <form [formGroup]="fromCadastro" (ngSubmit)="onSubmit()">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Nome do cliente:</label>
+                    <input type="text" class="form-control" placeholder="Nome" formControlName="nome">
+                    <div *ngIf="form.nome.touched && form.nome.invalid" class="text-danger">
+                        <span *ngIf="form.nome.errors.required">
+                            Por favor, informe o nome do cliente.
+                        </span>
+                        <span *ngIf="form.nome.errors.minlength">
+                            Por favor, informe no mínimo 6 caracteres.
+                        </span>
+                        <span *ngIf="form.nome.errors.maxlength">
+                            Por favor, informe no máximo 200 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>CPF do cliente:</label>
+                    <input type="text" class="form-control" placeholder="CPF" formControlName="cpf">
+                    <div *ngIf="form.cpf.touched && form.cpf.invalid" class="text-danger">
+                        <span *ngIf="form.cpf.errors.required">
+                            Por favor, informe o CPF do cliente.
+                        </span>
+                        <span *ngIf="form.cpf.errors.minlength || form.cpf.errors.maxlength">
+                            Por favor, o CPF é composto de 11 caracteres numéricos.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Data de Nascimento:</label>
+                    <input type="date" class="form-control" placeholder="Data" formControlName="dataNascimento">
+                    <div *ngIf="form.dataNascimento.touched && form.dataNascimento.invalid" class="text-danger">
+                        <span *ngIf="form.dataNascimento.errors.required">
+                            Por favor, informe a data de nascimento.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label>Telefone:</label>
+                    <input type="text" class="form-control" placeholder="Telefone" formControlName="telefone">
+                    <div *ngIf="form.telefone.touched && form.telefone.invalid" class="text-danger">
+                        <span *ngIf="form.telefone.errors.required">
+                            Por favor, informe o número do cliente.
+                        </span>
+                        <span *ngIf="form.telefone.errors.minlength">
+                            Por favor, informe no mínimo 11 caracteres.
+                        </span>
+                        <span *ngIf="form.telefone.errors.maxlength">
+                            Por favor, informe no máximo 20 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>E-mail:</label>
+                    <input type="text" class="form-control" placeholder="E-mail" formControlName="email">
+                    <div *ngIf="form.email.touched && form.email.invalid" class="text-danger">
+                        <span *ngIf="form.email.errors.required">
+                            Por favor, informe e-mail do cliente.
+                        </span>
+                        <span *ngIf="form.email.errors.minlength">
+                            Por favor, informe no mínimo 4 caracteres.
+                        </span>
+                        <span *ngIf="form.email.errors.maxlength">
+                            Por favor, informe no máximo 10 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label>Profissão:</label>
+                    <input type="text" class="form-control" placeholder="Profissão" formControlName="profissao">
+                    <div *ngIf="form.profissao.touched && form.profissao.invalid" class="text-danger">
+                        <span *ngIf="form.profissao.errors.required">
+                            Por favor, informe a professão do cliente.
+                        </span>
+                        <span *ngIf="form.profissao.errors.minlength">
+                            Por favor, informe no mínimo 4 caracteres.
+                        </span>
+                        <span *ngIf="form.profissao.errors.maxlength">
+                            Por favor, informe no máximo 10 caracteres.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Logradouro:</label>
+                    <input type="text" class="form-control" placeholder="Logradouro" formControlName="logradouro">
+                    <div *ngIf="form.logradouro.touched && form.logradouro.invalid" class="text-danger">
+                        <span *ngIf="form.logradouro.errors.required">
+                            Por favor, informe o logradouro do cliene.
+                        </span>
+                        <span *ngIf="form.logradouro.errors.minlength">
+                            Por favor, informe no mínimo 4 caracteres.
+                        </span>
+                        <span *ngIf="form.logradouro.errors.maxlength">
+                            Por favor, informe no máximo 10 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <label>Número:</label>
+                    <input type="text" class="form-control" placeholder="Número" formControlName="numero">
+                    <div *ngIf="form.numero.touched && form.numero.invalid" class="text-danger">
+                        <span *ngIf="form.numero.errors.required">
+                            Por favor, informe o numero do cliente.
+                        </span>
+                        <span *ngIf="form.numero.errors.minlength">
+                            Por favor, informe no mínimo 1 caracteres.
+                        </span>
+                        <span *ngIf="form.numero.errors.maxlength">
+                            Por favor, informe no máximo 8 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Bairro:</label>
+                    <input type="text" class="form-control" placeholder="Bairro" formControlName="bairro">
+                    <div *ngIf="form.bairro.touched && form.bairro.invalid" class="text-danger">
+                        <span *ngIf="form.bairro.errors.required">
+                            Por favor, informe o bairro do cliente.
+                        </span>
+                        <span *ngIf="form.bairro.errors.minlength">
+                            Por favor, informe no mínimo 4 caracteres.
+                        </span>
+                        <span *ngIf="form.bairro.errors.maxlength">
+                            Por favor, informe no máximo 80 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Município:</label>
+                    <input type="text" class="form-control" placeholder="Município" formControlName="municipio">
+                    <div *ngIf="form.municipio.touched && form.municipio.invalid" class="text-danger">
+                        <span *ngIf="form.municipio.errors.required">
+                            Por favor, informe o município da casda do cliente.
+                        </span>
+                        <span *ngIf="form.municipio.errors.minlength">
+                            Por favor, informe no mínimo 4 caracteres.
+                        </span>
+                        <span *ngIf="form.municipio.errors.maxlength">
+                            Por favor, informe no máximo 80 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <label>Estado:</label>
+                    <input type="text" class="form-control" placeholder="Estado" formControlName="estado">
+                    <div *ngIf="form.estado.touched && form.estado.invalid" class="text-danger">
+                        <span *ngIf="form.estado.errors.required">
+                            Por favor, informe o estado do cliente.
+                        </span>
+                        <span *ngIf="form.estado.errors.minlength">
+                            Por favor, informe no mínimo 2 caracteres.
+                        </span>
+                        <span *ngIf="form.estado.errors.maxlength">
+                            Por favor, informe no máximo 3 caracteres.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Como nos conheceu:</label>
+                    <!--<input type="textarea" class="form-control" rows="3" placeholder="Como nos conheceu" formControlName="comoConheceu">-->
+                    <textarea class="form-control" rows="3" placeholder="Como nos conheceu" formControlName="comoConheceu"></textarea>
+                    <div *ngIf="form.comoConheceu.touched && form.comoConheceu.invalid" class="text-danger">
+                        <span *ngIf="form.comoConheceu.errors.required">
+                            Por favor, informe nos conheceu.
+                        </span>
+                        <span *ngIf="form.comoConheceu.errors.minlength">
+                            Por favor, informe no mínimo 6 caracteres.
+                        </span>
+                        <span *ngIf="form.comoConheceu.errors.maxlength">
+                            Por favor, informe no máximo 500 caracteres.
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>Observação:</label>
+                    <!--<input type="textarea" class="form-control" rows="3" placeholder="Observação" formControlName="observacao">-->
+                    <textarea class="form-control" rows="3" placeholder="Observação" formControlName="observacao"></textarea>
+                    <div *ngIf="form.observacao.touched && form.observacao.invalid" class="text-danger">
+                        <span *ngIf="form.observacao.errors.required">
+                            Por favor, informe o uma observação.
+                        </span>
+                        <span *ngIf="form.observacao.errors.minlength">
+                            Por favor, informe no mínimo 6 caracteres.
+                        </span>
+                        <span *ngIf="form.observacao.errors.maxlength">
+                            Por favor, informe no máximo 500 caracteres.
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <div class="mb-3 d-grid">
+                        <input type="submit" value="Cadastrar" class="btn btn-sm btn-success" 
+                        [disabled]="!fromCadastro.valid">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="mb-3 d-grid">
+                        <button class="btn btn-sm btn-success" [routerLink]="['/home']">
+                            Voltar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<br>

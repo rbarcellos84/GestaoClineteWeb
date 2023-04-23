@@ -1,0 +1,47 @@
+<div class="card">
+    <div class="container col-md-12">
+        <h4>Consulta de cliente</h4>
+        <p>Listagem de clientes cadastrados na empresa.</p>
+        <hr>
+    </div>
+    <br>
+    <table class="table table-sm table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Profissão</th>
+                <th>Data de nascimento</th>
+                <th>Operação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of listaClientes" class="text-color:Black">
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>{{cliente.email}}</td>
+                <td>{{cliente.profissao}}</td>
+                <td>{{cliente.dataNascimento | date : 'dd/MM/yyyy'}}</td>
+                <td>
+                    <button class="btn btn-sm btn-success" [routerLink]="['/edicao-cliente/',cliente.idCliente]">
+                        Editar
+                    </button>
+                    &nbsp;
+                    <button class="btn btn-sm btn-success"
+                        (click)="onDelete(cliente.idCliente)">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6">
+                    Quantidade de registro: {{listaClientes.length}}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
